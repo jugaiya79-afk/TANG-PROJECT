@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Chat Viewer</title>
+<style>
+body { font-family: sans-serif; background: #eee; padding: 20px; }
+.wrap { max-width: 600px; margin: auto; }
+input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; box-sizing: border-box; }
+button { padding: 10px 16px; background: #3b82f6; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+canvas { background: transparent; width: 100%; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <input id="viewer" value="Nama">
+    <textarea id="msg">Teks chat di sini</textarea>
+    <button onclick="draw()">Generate</button>
+    <canvas id="cv" width="900" height="300"></canvas>
+</div>
+<script>
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+function draw() {
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = "#9ea7b5";
+    ctx.fillRect(20, 20, 800, 200);
+    ctx.fillStyle = "#fff";
+    ctx.font = "bold 40px Arial";
+    ctx.fillText(document.getElementById("viewer").value, 50, 80);
+    ctx.fillText(document.getElementById("msg").value, 50, 150);
+}
+draw();
+</script>
+</body>
+</html>
